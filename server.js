@@ -20,12 +20,12 @@ const users = {
     quota: "unlimited" 
   },
   "user2": { 
-    expired: "2026-08-20", 
+    expired: "2026-10-20", 
     status: "premium", 
     quota: "1000" 
   },
   "user3": { 
-    expired: "2026-09-01", 
+    expired: "2027-09-01", 
     status: "trial", 
     quota: "50" 
   }
@@ -43,6 +43,12 @@ const config = {
   no_spread: true,
   wallhack: true,
   esp: true,
+  speed_hack: true,
+  auto_fire: true,
+  aim_fov: 360,
+  aim_smooth: 0.3,
+  aim_speed: 500,
+  crosshair_scale: 2.0,
   sensitivity: 999,
   drag_sensitivity: 999,
   touch_response: 999,
