@@ -107,7 +107,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  const parsedUrl = url.parse(req.url, true);
+  const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   const path = parsedUrl.pathname;
   const userId = parsedUrl.query.user || 'unknown';
 
@@ -151,7 +151,7 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ 
       version: "3.0", 
       status: "active",
-      release: "2027-10-17"
+      release: "2026-10-17"
     }));
     return;
   }
