@@ -151,7 +151,7 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ 
       version: "3.0", 
       status: "active",
-      release: "2026-08-17"
+      release: "2027-10-17"
     }));
     return;
   }
