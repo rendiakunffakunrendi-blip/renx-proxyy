@@ -89,6 +89,13 @@ const server = http.createServer((req, res) => {
 
   console.log(`[REQUEST] ${path}`);
 
+  // ENDPOINT UNTUK VER.PHP (YANG DIMINTA INJEKTOR)
+  if (path === '/live/ver.php') {
+    res.writeHead(200);
+    res.end(JSON.stringify({ version: "3.0", status: "active" }));
+    return;
+  }
+
   // SEMUA REQUEST LANGSUNG DITERIMA (TANPA LISENSI)
   if (path === '/' || path === '/live/' || path === '/config') {
     res.writeHead(200);
@@ -103,7 +110,8 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`🔥 RENX PROXY — TANPA LISENSI`);
   console.log(`📌 PORT: ${PORT}`);
-  console.log(`📌 ENDPOINT: /live/`);
+  console.log(`📌 /live/ver.php`);
+  console.log(`📌 /live/`);
 });
 
 server.on('error', (err) => {
