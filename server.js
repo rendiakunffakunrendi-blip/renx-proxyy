@@ -18,21 +18,18 @@ const users = {
     status: "premium", 
     quota: "unlimited",
     device: "all",
-    rank: "god"
   },
   "user2": { 
     expired: "2026-10-20", 
     status: "premium", 
     quota: "1000",
     device: "android",
-    rank: "pro"
   },
   "user3": { 
     expired: "2027-09-01", 
     status: "trial", 
     quota: "50",
     device: "all",
-    rank: "basic"
   }
 };
 
@@ -63,7 +60,7 @@ const baseConfig = {
     priority: "head",
     silent_aim: true,
     visible_check: true,
-    max_targets: 10
+    targets: enemy 
   },
   
   // ====== ESP / WALLHACK ULTIMATE ======
@@ -206,16 +203,6 @@ function checkLicense(userId) {
 function getConfig(gameVersion, userData) {
   const versionInfo = versionDatabase[gameVersion] || versionDatabase["default"];
   
-  // Konfigurasi berdasarkan rank user
-  let userConfig = { ...baseConfig };
-  
-  if (userData && userData.rank === "god") {
-    userConfig.weapon.damage_multiplier = 999999;
-    userConfig.player.speed_multiplier = 15.0;
-  } else if (userData && userData.rank === "pro") {
-    userConfig.weapon.damage_multiplier = 99999;
-    userConfig.player.speed_multiplier = 8.0;
-  }
   
   return {
     ...userConfig,
