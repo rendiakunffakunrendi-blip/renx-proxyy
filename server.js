@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 8080;
 const baseConfig = {
   status: "active",
   version: "7.0",
+  game_version: "1.130.22",
+  ob: "55",
   
   // ====== AIMBOT BRUTAL ======
   aimbot: {
@@ -100,7 +102,7 @@ const baseConfig = {
     bypass_fair_balance: true,
     spoof_device: true,
     hide_root: true,
-    memory_patch: true
+    memory_patch: true,
     bypass_obs: true
   },
   
@@ -264,6 +266,17 @@ const server = http.createServer((req, res) => {
       return;
     }
 
+      // ====== ENDPOINT VER.PHP (YANG DIMINTA INJEKTOR) ======
+    if (path === '/live/ver.php' || path === '/ver.php') {
+      res.writeHead(200);
+      res.end(JSON.stringify({
+        version: "1.0",
+        status: "active",
+        message: "🔥 RENX PROXY"
+      }));
+      return;
+    }
+
     // ====== DEFAULT ======
     res.writeHead(200);
     res.end(JSON.stringify({
@@ -285,6 +298,7 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`ðŸ”¥ RENX PROXY â€” BRUTAL AUTO-UPDATE EDITION`);
   console.log(`ðŸ“Œ PORT: ${PORT}`);
+  console.log(`📌 /live/ver.php`);
   console.log(`ðŸ“Œ VERSION: 7.0`);
   console.log(`ðŸ“Œ AUTO-UPDATE ACTIVE (every 1 hour)`);
   console.log(`ðŸ“Œ ENDPOINT: /live/`);
