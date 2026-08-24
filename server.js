@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 const config = {
   status: "active",
   version: "8.0",
-  game_version: "1.130.21",
+  game_version: "1.130.22",
   ob: "55",
   aimbot: {
     enabled: true,
@@ -148,7 +148,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(200);
       res.end(JSON.stringify({
         version: "8.0",
-        game_version: "1.130.21",
+        game_version: "1.130.22",
         ob: "55",
         status: "active"
       }));
